@@ -1,0 +1,7 @@
+Ce dossier est prévu pour vos fichiers vidéo (si vous hébergez la vidéo
+vous-même, par ex. video-preferee.mp4).
+
+Dans pages/favoris.html, la vidéo préférée est actuellement intégrée via
+un lecteur YouTube (iframe). Remplacez l'ID de la vidéo dans l'attribut
+src par celui de votre propre vidéo préférée :
+  src="https://www.youtube.com/embed/VOTRE_ID_VIDEO"

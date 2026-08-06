@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Ravaka Andria</title>
+<link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="name">CRISLIN</span>
+    <span class="tag">Carnet personnel — exercice progwebsat</span>
+  </div>
+  <nav class="tabs">
+    <a href="../index.html"><span class="num">00</span>Accueil</a>
+    <a href="apropos.html"><span class="num">01</span>À propos</a>
+    <a href="cv.html"><span class="num">02</span>Mon CV</a>
+    <a href="favoris.html"><span class="num">03</span>Mes favoris</a>
+    <a href="contact.html" class="active"><span class="num">04</span>Contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="paper">
+    <span class="eyebrow">Restons en contact</span>
+    <h1>Contactez-moi</h1>
+    <p>
+      Avant de m'écrire, merci de renseigner vos informations ci-dessous.
+      Elles sont enregistrées localement dans votre navigateur (aucun
+      serveur n'est utilisé dans cet exercice).
+    </p>
+
+    <form class="contact-form" id="contact-form">
+      <div>
+        <label for="nom">Nom du visiteur</label>
+        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+      </div>
+      <div>
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="email" required placeholder="vous@exemple.com">
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
+      </div>
+      <button type="submit" class="btn">Envoyer</button>
+      <p class="form-status" id="form-status">Merci ! Vos informations ont bien été enregistrées.</p>
+    </form>
+
+    <div class="visitor-log">
+      <h2>Visiteurs précédents</h2>
+      <div id="visitor-list">
+        <p class="empty-note">Aucun message pour le moment.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">Exercice progwebsat.html</footer>
+
+<script>
+  const STORAGE_KEY = "carnet-contact-visiteurs";
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const list = document.getElementById("visitor-list");
+
+  function lireVisiteurs(){
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function afficherVisiteurs(){
+    const visiteurs = lireVisiteurs();
+    if (visiteurs.length === 0){
+      list.innerHTML = '<p class="empty-note">Aucun message pour le moment.</p>';
+      return;
+    }
+    const items = visiteurs
+      .slice()
+      .reverse()
+      .map(v => `
+        <li>
+          <span class="meta">${v.nom} · ${v.email} · ${v.date}</span>
+          ${v.message}
+        </li>
+      `).join("");
+    list.innerHTML = `<ul>${items}</ul>`;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const visiteurs = lireVisiteurs();
+    visiteurs.push({
+      nom: form.nom.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim(),
+      date: new Date().toLocaleString("fr-FR")
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(visiteurs));
+    form.reset();
+    status.classList.add("ok");
+    afficherVisiteurs();
+  });
+
+  afficherVisiteurs();
+</script>
+
+</body>
+</html>

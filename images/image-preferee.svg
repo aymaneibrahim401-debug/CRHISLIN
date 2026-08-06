@@ -1,0 +1,14 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titre desc">
+  <title id="titre">Image préférée — exemple</title>
+  <desc id="desc">Illustration de remplacement représentant des collines au coucher du soleil, à remplacer par votre propre image.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c99a3b"/>
+      <stop offset="100%" stop-color="#f6f1e4"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#sky)"/>
+  <circle cx="500" cy="90" r="46" fill="#f6f1e4" opacity="0.9"/>
+  <path d="M0,260 C120,190 220,230 320,205 C420,180 520,230 640,200 L640,360 L0,360 Z" fill="#6e8f72"/>
+  <path d="M0,300 C140,250 260,290 360,265 C460,240 560,280 640,255 L640,360 L0,360 Z" fill="#2c3a35"/>
+</svg>
