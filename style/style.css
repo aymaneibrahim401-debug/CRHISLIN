@@ -95,6 +95,11 @@ img{ max-width:100%; display:block; }
   font-weight:800;
   letter-spacing:-0.5px;
   color:var(--primary);
+  text-decoration:none !important;
+}
+
+.brand .name:hover{
+  color:var(--primary-dark);
 }
 
 .brand .tag{
@@ -259,6 +264,8 @@ hr.rule{
 /* ---------- tableau CV ---------- */
 table.cv{
   width:100%;
+  max-width:100%;
+  table-layout:fixed;
   border-collapse:collapse;
   margin:1.2em 0 2em;
   font-size:0.95rem;
@@ -280,6 +287,8 @@ table.cv th, table.cv td{
   padding:11px 14px;
   text-align:left;
   vertical-align:top;
+  word-break:break-word;
+  overflow-wrap:break-word;
 }
 
 table.cv th{
