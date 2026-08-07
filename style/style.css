@@ -48,6 +48,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline-offset:2px;
 }
 
+.brand:focus-visible{
+  outline:none;
+}
+
 img{ max-width:100%; display:block; }
 
 /* ---------- structure "carnet" ---------- */
@@ -87,6 +91,20 @@ img{ max-width:100%; display:block; }
   display:flex;
   flex-direction:column;
   gap:2px;
+  text-decoration:none !important;
+  -webkit-tap-highlight-color:transparent;
+  outline:none;
+  transform-origin:left center;
+  transition:transform 0.2s ease;
+}
+
+.brand:hover,
+.brand:focus-visible{
+  transform:scale(1.06);
+}
+
+.brand:active{
+  transform:scale(0.97);
 }
 
 .brand .name{
@@ -95,19 +113,6 @@ img{ max-width:100%; display:block; }
   font-weight:800;
   letter-spacing:-0.5px;
   color:var(--primary);
-  text-decoration:none !important;
-  display:inline-block;
-  transform-origin:left center;
-  transition:transform 0.2s ease;
-}
-
-.brand .name:hover,
-.brand .name:focus-visible{
-  transform:scale(1.08);
-}
-
-.brand .name:active{
-  transform:scale(0.97);
 }
 
 .brand .tag{
