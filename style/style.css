@@ -978,3 +978,71 @@ footer.site-footer{
   border-top:1px solid #fff !important;
   background:#fff !important;
 }
+
+/* ---------- galerie de favoris ---------- */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+
+.media-frame video{
+  width:100%;
+  display:block;
+  max-height:520px;
+  background:#000;
+}
+
+.photo-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:1.4em 0 2em;
+}
+
+.photo-card{
+  margin:0;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--white);
+  box-shadow:var(--shadow);
+}
+
+.photo-card img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+  transition:transform .25s ease;
+}
+
+.photo-card:hover img{
+  transform:scale(1.03);
+}
+
+.photo-card figcaption{
+  padding:8px 10px;
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--muted);
+}
+
+.audio-placeholder{
+  margin-bottom:1em;
+}
+
+@media (max-width:800px){
+  .video-grid{
+    grid-template-columns:1fr;
+  }
+  .photo-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:520px){
+  .photo-gallery{
+    grid-template-columns:1fr;
+  }
+}

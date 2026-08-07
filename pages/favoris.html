@@ -34,40 +34,127 @@
     <span class="eyebrow">Goûts personnels</span>
     <h1>Mes favoris</h1>
     <p>
-      Trois choses que j'aime : une vidéo, une musique et une image.
-      Les exemples ci-dessous sont à remplacer par vos propres favoris.
+      Voici une sélection de mes photos et vidéos préférées.
+      La musique peut être ajoutée directement dans le dossier <code>audio</code>.
     </p>
 
-    <h2>Ma vidéo préférée</h2>
-    <div class="media-block">
-      <div class="media-frame">
-        <iframe
-          width="100%" height="360"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Ma vidéo préférée"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+    <h2>Mes vidéos</h2>
+    <div class="video-grid">
+      <div class="media-block">
+        <div class="media-frame">
+          <video controls preload="metadata">
+            <source src="../media/video-1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+          </video>
+        </div>
+        <p class="credit">Vidéo 1</p>
       </div>
-      <p class="credit">Remplacez l'ID dans l'URL par celui de votre propre vidéo préférée.</p>
+
+      <div class="media-block">
+        <div class="media-frame">
+          <video controls preload="metadata">
+            <source src="../media/video-2.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+          </video>
+        </div>
+        <p class="credit">Vidéo 2</p>
+      </div>
+    </div>
+
+    <h2>Mes photos</h2>
+    <div class="photo-gallery">
+      <figure class="photo-card">
+        <img src="../images/photo-1.jpg" alt="Photo 1" loading="lazy">
+        <figcaption>Photo 1</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-2.jpg" alt="Photo 2" loading="lazy">
+        <figcaption>Photo 2</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-3.jpg" alt="Photo 3" loading="lazy">
+        <figcaption>Photo 3</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-4.jpg" alt="Photo 4" loading="lazy">
+        <figcaption>Photo 4</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-5.jpg" alt="Photo 5" loading="lazy">
+        <figcaption>Photo 5</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-6.jpg" alt="Photo 6" loading="lazy">
+        <figcaption>Photo 6</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-7.jpg" alt="Photo 7" loading="lazy">
+        <figcaption>Photo 7</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-8.jpg" alt="Photo 8" loading="lazy">
+        <figcaption>Photo 8</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-9.jpg" alt="Photo 9" loading="lazy">
+        <figcaption>Photo 9</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-10.jpg" alt="Photo 10" loading="lazy">
+        <figcaption>Photo 10</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-11.jpg" alt="Photo 11" loading="lazy">
+        <figcaption>Photo 11</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-12.jpg" alt="Photo 12" loading="lazy">
+        <figcaption>Photo 12</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-13.jpg" alt="Photo 13" loading="lazy">
+        <figcaption>Photo 13</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-14.jpg" alt="Photo 14" loading="lazy">
+        <figcaption>Photo 14</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-15.jpg" alt="Photo 15" loading="lazy">
+        <figcaption>Photo 15</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-16.jpg" alt="Photo 16" loading="lazy">
+        <figcaption>Photo 16</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-17.jpg" alt="Photo 17" loading="lazy">
+        <figcaption>Photo 17</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-18.jpg" alt="Photo 18" loading="lazy">
+        <figcaption>Photo 18</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-19.jpg" alt="Photo 19" loading="lazy">
+        <figcaption>Photo 19</figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="../images/photo-20.jpg" alt="Photo 20" loading="lazy">
+        <figcaption>Photo 20</figcaption>
+      </figure>
     </div>
 
     <h2>Ma musique préférée</h2>
-    <div class="media-block">
-      <audio controls src="../audio/musique-preferee.mp3">
+    <div class="media-block audio-placeholder">
+      <audio controls>
+        <source src="../audio/musique-preferee.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas la lecture audio.
       </audio>
-      <p class="credit">Ajoutez votre fichier dans <code>audio/musique-preferee.mp3</code> (voir LISEZMOI.txt).</p>
-    </div>
-
-    <h2>Mon image préférée</h2>
-    <div class="media-block">
-      <div class="media-frame">
-        <img src="../images/image-preferee.svg" alt="Image préférée — collines au coucher du soleil (exemple)" loading="lazy">
-      </div>
-      <p class="credit">Remplacez <code>images/image-preferee.svg</code> par votre propre image (.jpg, .png…).</p>
+      <p class="credit">
+        Pour ajouter ta musique : place ton fichier MP3 dans le dossier
+        <code>audio</code> et renomme-le <code>musique-preferee.mp3</code>.
+      </p>
     </div>
   </div>
 </main>

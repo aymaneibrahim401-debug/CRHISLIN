@@ -1,5 +1,4 @@
-Placez ici votre fichier audio préféré, par exemple :
-musique-preferee.mp3
-
-Puis vérifiez que pages/favoris.html pointe bien vers :
-../audio/musique-preferee.mp3
+Pour ajouter votre audio :
+1. Placez votre fichier MP3 dans ce dossier.
+2. Renommez-le : musique-preferee.mp3
+3. La page pages/favoris.html le lira automatiquement.
