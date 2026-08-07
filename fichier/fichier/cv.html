@@ -3,38 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon CV — Ravaka Andria</title>
+<title>CV — Ravaka Andria</title>
 <link rel="stylesheet" href="../style/style.css">
+<style>
+  /* mise en page simplifiée pour la version téléchargeable / imprimable */
+  body{ background:var(--paper); }
+  .page{ padding-top:48px; }
+  @media print{
+    body{ background:#fff; }
+    .no-print{ display:none; }
+  }
+</style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="brand">
-    <span class="name">Ravaka Andria</span>
-    <span class="tag">Carnet personnel — exercice progwebsat</span>
-  </div>
-  <nav class="tabs">
-    <a href="../index.html"><span class="num">00</span>Accueil</a>
-    <a href="apropos.html"><span class="num">01</span>À propos</a>
-    <a href="cv.html" class="active"><span class="num">02</span>Mon CV</a>
-    <a href="favoris.html"><span class="num">03</span>Mes favoris</a>
-    <a href="contact.html"><span class="num">04</span>Contact</a>
-  </nav>
-</header>
-
 <main class="page">
   <div class="paper">
-    <span class="eyebrow">Parcours</span>
-    <h1>Mon CV</h1>
-    <p>
-      Vous trouverez ci-dessous mon CV présenté sous forme de tableau.
-      Une version téléchargeable est également disponible dans le dossier
-      <code>fichier/</code>.
-    </p>
-
-    <p>
-      <a class="btn" href="../fichier/cv.html" download>&#8681; Télécharger mon CV</a>
-    </p>
+    <span class="eyebrow">Curriculum vitae — version téléchargeable</span>
+    <h1>Ravaka Andria</h1>
+    <p>Développeur(se) web junior — Antananarivo, Madagascar</p>
 
     <table class="cv">
       <caption>Informations générales</caption>
@@ -56,10 +42,11 @@
       <tr><th>Outils</th><td>VS Code, Git</td></tr>
       <tr><th>Langues</th><td>Malgache, Français, Anglais</td></tr>
     </table>
+
+    <p class="no-print">
+      <a class="btn secondary" href="../pages/cv.html">&larr; Retour à la page CV du site</a>
+    </p>
   </div>
 </main>
-
-<footer class="site-footer">Exercice progwebsat.html</footer>
-
 </body>
 </html>
