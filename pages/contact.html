@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact — Ravaka Andria">
+<meta name="theme-color" content="#2563EB">
 <title>Contact — Ravaka Andria</title>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style">
 <link rel="stylesheet" href="../style/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,6 +17,9 @@
     <span class="name">Ravaka Andria</span>
     <span class="tag">Carnet personnel — exercice progwebsat</span>
   </div>
+  <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <nav class="tabs">
     <a href="../index.html"><span class="num">00</span>Accueil</a>
     <a href="apropos.html"><span class="num">01</span>À propos</a>
@@ -61,10 +68,15 @@
 <footer class="site-footer">Exercice progwebsat.html</footer>
 
 <script>
+(function() {
+  'use strict';
+  
   const STORAGE_KEY = "carnet-contact-visiteurs";
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
   const list = document.getElementById("visitor-list");
+
+  if (!form || !status || !list) return;
 
   function lireVisiteurs(){
     try {
@@ -83,12 +95,12 @@
     const items = visiteurs
       .slice()
       .reverse()
-      .map(v => `
-        <li>
-          <span class="meta">${v.nom} · ${v.email} · ${v.date}</span>
-          ${v.message}
-        </li>
-      `).join("");
+      .map(v => {
+        const nom = v.nom ? v.nom.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+        const email = v.email ? v.email.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+        const msg = v.message ? v.message.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+        return `<li><span class="meta">${nom} · ${email} · ${v.date}</span>${msg}</li>`;
+      }).join("");
     list.innerHTML = `<ul>${items}</ul>`;
   }
 
@@ -104,11 +116,14 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(visiteurs));
     form.reset();
     status.classList.add("ok");
+    setTimeout(() => status.classList.remove("ok"), 4000);
     afficherVisiteurs();
-  });
+  }, { passive: false });
 
   afficherVisiteurs();
+})();
 </script>
 
+<script src="../js/menu.js"></script>
 </body>
 </html>
