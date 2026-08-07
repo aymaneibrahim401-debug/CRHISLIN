@@ -96,10 +96,18 @@ img{ max-width:100%; display:block; }
   letter-spacing:-0.5px;
   color:var(--primary);
   text-decoration:none !important;
+  display:inline-block;
+  transform-origin:left center;
+  transition:transform 0.2s ease;
 }
 
-.brand .name:hover{
-  color:var(--primary-dark);
+.brand .name:hover,
+.brand .name:focus-visible{
+  transform:scale(1.08);
+}
+
+.brand .name:active{
+  transform:scale(0.97);
 }
 
 .brand .tag{
