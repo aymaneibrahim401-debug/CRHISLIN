@@ -1,0 +1,5 @@
+Placez ici votre fichier audio préféré, par exemple :
+musique-preferee.mp3
+
+Puis vérifiez que pages/favoris.html pointe bien vers :
+../audio/musique-preferee.mp3
