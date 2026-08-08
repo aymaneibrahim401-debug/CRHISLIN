@@ -1209,35 +1209,9 @@ footer.site-footer{
   }
 }
 
-/* ---------- transition fluide entre les pages ---------- */
+/* ---------- transition fluide entre les pages (native, sans clignotement) ---------- */
 @view-transition{
   navigation:auto;
-}
-
-body{
-  opacity:1;
-}
-
-body.page-enter{
-  animation:page-fade-in .28s ease both;
-}
-
-body.page-leave{
-  animation:page-fade-out .18s ease both;
-}
-
-@keyframes page-fade-in{
-  from{ opacity:0; }
-  to{ opacity:1; }
-}
-
-@keyframes page-fade-out{
-  from{ opacity:1; }
-  to{ opacity:0; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  body.page-enter, body.page-leave{ animation:none; }
 }
 
 .cv-download{

@@ -1,8 +1,5 @@
-// Transition en fondu entre les pages du site
+// Préchargement des pages au survol / focus, pour une navigation rapide et sans à-coup
 document.addEventListener("DOMContentLoaded", function () {
-  document.body.classList.add("page-enter");
-
-  // --- préchargement des pages au survol / focus (navigation quasi instantanée) ---
   const preloaded = new Set();
 
   function preload(url) {
@@ -36,28 +33,4 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("touchstart", function () { preload(url.href); }, { once: true, passive: true });
     link.addEventListener("focus", function () { preload(url.href); }, { once: true });
   });
-
-  // --- transition en fondu au clic ---
-  document.addEventListener("click", function (e) {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const url = isInternalNavigable(link);
-    if (!url) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-
-    e.preventDefault();
-    document.body.classList.add("page-leave");
-    document.body.classList.remove("page-enter");
-
-    setTimeout(function () {
-      window.location.href = url.href;
-    }, 180);
-  });
-});
-
-// gère le cas où l'utilisateur revient en arrière (bouton précédent)
-window.addEventListener("pageshow", function (event) {
-  document.body.classList.remove("page-leave");
-  document.body.classList.add("page-enter");
 });
