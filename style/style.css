@@ -1239,3 +1239,8 @@ body.page-leave{
 @media (prefers-reduced-motion: reduce){
   body.page-enter, body.page-leave{ animation:none; }
 }
+
+.cv-download{
+  text-align:center;
+  margin-top:2.4em;
+}

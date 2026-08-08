@@ -6,6 +6,8 @@
 <meta name="description" content="Contact — RAJAONARISON CHRISLIN">
 <meta name="theme-color" content="#2563EB">
 <title>Contact — RAJAONARISON CHRISLIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style">
 <link rel="stylesheet" href="../style/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -40,15 +42,15 @@
     <form class="contact-form" id="contact-form">
       <div>
         <label for="nom">Nom du visiteur</label>
-        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+        <input type="text" id="nom" name="nom" required maxlength="100" autocomplete="name" placeholder="Votre nom">
       </div>
       <div>
         <label for="email">Adresse email</label>
-        <input type="email" id="email" name="email" required placeholder="vous@exemple.com">
+        <input type="email" id="email" name="email" required maxlength="200" autocomplete="email" placeholder="vous@exemple.com">
       </div>
       <div>
         <label for="message">Message</label>
-        <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
+        <textarea id="message" name="message" required maxlength="2000" placeholder="Votre message..."></textarea>
       </div>
       <button type="submit" class="btn">Envoyer</button>
       <p class="form-status" id="form-status">Merci ! Vos informations ont bien été enregistrées.</p>
@@ -62,63 +64,7 @@
     </div>
   </div>
 </main>
-<script>
-(function() {
-  'use strict';
-  
-  const STORAGE_KEY = "carnet-contact-visiteurs";
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-  const list = document.getElementById("visitor-list");
-
-  if (!form || !status || !list) return;
-
-  function lireVisiteurs(){
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function afficherVisiteurs(){
-    const visiteurs = lireVisiteurs();
-    if (visiteurs.length === 0){
-      list.innerHTML = '<p class="empty-note">Aucun message pour le moment.</p>';
-      return;
-    }
-    const items = visiteurs
-      .slice()
-      .reverse()
-      .map(v => {
-        const nom = v.nom ? v.nom.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
-        const email = v.email ? v.email.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
-        const msg = v.message ? v.message.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
-        return `<li><span class="meta">${nom} · ${email} · ${v.date}</span>${msg}</li>`;
-      }).join("");
-    list.innerHTML = `<ul>${items}</ul>`;
-  }
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    const visiteurs = lireVisiteurs();
-    visiteurs.push({
-      nom: form.nom.value.trim(),
-      email: form.email.value.trim(),
-      message: form.message.value.trim(),
-      date: new Date().toLocaleString("fr-FR")
-    });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(visiteurs));
-    form.reset();
-    status.classList.add("ok");
-    setTimeout(() => status.classList.remove("ok"), 4000);
-    afficherVisiteurs();
-  }, { passive: false });
-
-  afficherVisiteurs();
-})();
-</script>
-
+<script src="../js/contact.js"></script>
 <script src="../js/menu.js"></script>
 <script src="../js/page-transition.js"></script>
 
