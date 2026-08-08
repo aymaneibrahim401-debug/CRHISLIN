@@ -1046,3 +1046,131 @@ footer.site-footer{
     grid-template-columns:1fr;
   }
 }
+
+/* ---------- galerie : miniatures cliquables ---------- */
+.photo-card img{
+  cursor:zoom-in;
+}
+
+/* petite icône d'agrandissement sur la miniature au survol */
+.photo-card{
+  position:relative;
+}
+
+.photo-card::after{
+  content:"⤢";
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(15,23,42,0.55);
+  color:var(--white);
+  border-radius:8px;
+  font-size:0.9rem;
+  opacity:0;
+  transition:opacity 0.2s ease;
+  pointer-events:none;
+}
+
+.photo-card:hover::after{ opacity:1; }
+
+/* ---------- lightbox plein écran ---------- */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(15,23,42,0.92);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.lightbox.open{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:min(92vw,1100px);
+  max-height:88vh;
+  object-fit:contain;
+  border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  animation:lightbox-zoom-in 0.18s ease;
+}
+
+@keyframes lightbox-zoom-in{
+  from{ transform:scale(0.94); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next{
+  position:absolute;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.25);
+  color:var(--white);
+  border-radius:999px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover{
+  background:rgba(255,255,255,0.22);
+}
+
+.lightbox-close{
+  top:20px;
+  right:20px;
+  width:44px;
+  height:44px;
+  font-size:1.4rem;
+}
+
+.lightbox-prev,
+.lightbox-next{
+  top:50%;
+  transform:translateY(-50%);
+  width:52px;
+  height:52px;
+  font-size:1.6rem;
+}
+
+.lightbox-prev{ left:16px; }
+.lightbox-next{ right:16px; }
+
+.lightbox-caption{
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  color:var(--white);
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  opacity:0.8;
+}
+
+@media (max-width:640px){
+  .lightbox-prev,
+  .lightbox-next{
+    width:42px;
+    height:42px;
+    font-size:1.3rem;
+  }
+  .lightbox-close{
+    width:38px;
+    height:38px;
+    top:12px;
+    right:12px;
+  }
+}
