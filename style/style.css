@@ -696,6 +696,7 @@ footer.site-footer{
 
 .home-copy{
   min-height:100vh;
+  min-width:0;
   display:flex;
   align-items:center;
   padding:110px 6vw 70px 5vw;
@@ -705,6 +706,7 @@ footer.site-footer{
 
 .home-copy-inner{
   width:min(760px,100%);
+  min-width:0;
 }
 
 .home-kicker{
@@ -719,12 +721,10 @@ footer.site-footer{
 .home-copy h1{
   margin:0;
   color:#0F172A;
-  font-size:clamp(3.4rem,7vw,6.7rem);
+  font-size:clamp(3rem,5.8vw,6rem);
   line-height:.98;
   letter-spacing:-.065em;
   font-weight:800;
-  overflow-wrap:break-word;
-  word-break:break-word;
 }
 
 .home-copy h1 span{ color:#0F172A; }
@@ -797,7 +797,7 @@ footer.site-footer{
   .home-hero{ grid-template-columns:minmax(0,1fr); }
   .home-photo{ min-height:40vh; order:-1; }
   .home-copy{ min-height:auto; padding:70px 8vw 44px; }
-  .home-copy h1{ font-size:clamp(3rem,13vw,5.5rem); }
+  .home-copy h1{ font-size:clamp(2.6rem,10vw,5.5rem); }
   .home-description{ margin-top:30px; font-size:1.15rem; }
   .home-extra{ padding-top:48px; }
 }
@@ -809,7 +809,7 @@ footer.site-footer{
   .home-copy{ padding:58px 24px 32px; }
   .home-line{ height:52px; width:5px; margin-bottom:22px; }
   .home-kicker{ font-size:.78rem; }
-  .home-copy h1{ font-size:clamp(2.8rem,15vw,4.2rem); }
+  .home-copy h1{ font-size:clamp(2rem,calc(11.9vw - 6px),4.2rem); }
   .home-actions{ flex-direction:column; align-items:stretch; }
   .home-btn{ width:100%; }
 }
