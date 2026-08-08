@@ -775,28 +775,56 @@ footer.site-footer{
   min-height:100vh;
   overflow:hidden;
   position:relative;
-  background:#dfe7ef;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(28px,4.5vw,64px);
+  background:linear-gradient(155deg,#eef2ff 0%,#dbe6ff 55%,#eef2ff 100%);
+  box-sizing:border-box;
+}
+
+/* cadre décoratif décalé derrière la photo */
+.home-photo::before{
+  content:"";
+  position:absolute;
+  inset:clamp(28px,4.5vw,64px);
+  border:2px solid rgba(37,99,235,0.35);
+  border-radius:28px;
+  transform:rotate(-2.5deg) scale(1.015);
+  pointer-events:none;
 }
 
 .home-photo::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,rgba(11,19,39,.08),transparent 25%);
+  background:radial-gradient(120% 90% at 15% 10%,rgba(255,255,255,.5),transparent 60%);
   pointer-events:none;
 }
 
 .home-photo img{
+  position:relative;
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:center 42%;
+  display:block;
+  border-radius:24px;
+  box-shadow:0 30px 60px -18px rgba(15,23,42,.4),0 0 0 6px #fff;
+  transform:rotate(1.2deg);
 }
 
 @media (max-width:900px){
   .home-hero{ grid-template-columns:minmax(0,1fr); }
-  .home-photo{ min-height:40vh; order:-1; }
-  .home-copy{ min-height:auto; padding:70px 8vw 44px; }
+  .home-photo{
+    min-height:auto;
+    aspect-ratio:4/3;
+    order:-1;
+    padding:22px;
+  }
+  .home-photo::before{ inset:22px; border-radius:22px; }
+  .home-photo img{ border-radius:18px; box-shadow:0 18px 34px -14px rgba(15,23,42,.4),0 0 0 5px #fff; }
+  .home-copy{ min-height:auto; padding:44px 8vw 44px; }
   .home-copy h1{ font-size:clamp(2.6rem,10vw,5.5rem); }
   .home-description{ margin-top:30px; font-size:1.15rem; }
   .home-extra{ padding-top:48px; }
@@ -805,8 +833,10 @@ footer.site-footer{
 @media (max-width:640px){
   .home-extra{ padding:36px 24px 72px; }
   .home-page .site-header{ position:absolute; }
-  .home-photo{ min-height:38vh; }
-  .home-copy{ padding:58px 24px 32px; }
+  .home-photo{ aspect-ratio:1/1; padding:16px; }
+  .home-photo::before{ inset:16px; border-radius:18px; }
+  .home-photo img{ border-radius:14px; transform:rotate(1deg); }
+  .home-copy{ padding:36px 24px 32px; }
   .home-line{ height:52px; width:5px; margin-bottom:22px; }
   .home-kicker{ font-size:.78rem; }
   .home-copy h1{ font-size:clamp(2rem,calc(11.9vw - 6px),4.2rem); }
