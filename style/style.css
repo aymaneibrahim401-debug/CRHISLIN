@@ -723,6 +723,8 @@ footer.site-footer{
   line-height:.98;
   letter-spacing:-.065em;
   font-weight:800;
+  overflow-wrap:break-word;
+  word-break:break-word;
 }
 
 .home-copy h1 span{ color:#0F172A; }
@@ -792,7 +794,7 @@ footer.site-footer{
 }
 
 @media (max-width:900px){
-  .home-hero{ grid-template-columns:1fr; }
+  .home-hero{ grid-template-columns:minmax(0,1fr); }
   .home-photo{ min-height:40vh; order:-1; }
   .home-copy{ min-height:auto; padding:70px 8vw 44px; }
   .home-copy h1{ font-size:clamp(3rem,13vw,5.5rem); }
